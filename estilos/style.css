@@ -25,7 +25,7 @@
 body{
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   line-height: 1.5em;
-  background-color: var(--fundo-principal);
+  background-color: red;
   color: var(--texto);
 }
 header{
