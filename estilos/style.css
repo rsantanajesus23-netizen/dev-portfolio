@@ -29,12 +29,15 @@ body{
   color: var(--texto);
 }
 header{
-  background-color: var(--destaque);
-  color: var(--texto);
-  padding: 10px;
   display: flex;
   justify-content: flex-end;
   align-content: center;
+  background-color: var(--destaque);
+  color: var(--texto);
+  padding: 10px;
+  position: sticky;
+  top: 0;
+  z-index: 1;
 }
 #menu ul{
   list-style: none;
@@ -77,7 +80,7 @@ main{
   outline: 4px solid var(--destaque-inverso);
   display: block;
   margin: auto;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 section#ficha h1{
   color: var(--destaque);
@@ -111,7 +114,7 @@ article{
 
 article h2{
   color: var(--destaque);
-  margin-bottom: 0px;
+  margin-bottom: 10px;
 }
 
 #skill-container{
@@ -128,7 +131,7 @@ article h2{
 #skill-container .nome{
   font-weight: bold;
   color: var(--texto);
-  margin-bottom: 5px;
+  margin-bottom: 4px;
    
 }
 
@@ -166,6 +169,7 @@ article h2{
   border-left: 5px solid var(--destaque-inverso);
   padding-left: 10px;
   transition: border-width 0.4s, border-color 0.4s;
+  margin-top: 10px;
 }
 
 #formacao-container .curso:hover{
@@ -182,6 +186,7 @@ article h2{
 #formacao-container .instituicao{
   color: var(--destaque-inverso);
   font-size: 1.1em;
+
 } 
 /* Estilização para os H4 e listas dentro de cada curso */
 #formacao-container h4 {
@@ -199,15 +204,103 @@ article h2{
   margin-bottom: 10px;
 }
 
+#projeto-container{
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 20px;
+}
+
+#projeto-container .projeto{
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  background-color: var(--fundo-principal);
+  padding: 10px;
+  border-radius: 8px;
+  border-left: 5px solid var(--destaque-inverso);
+  transition: border-width 0.4s, border-color 0.4s;
+  cursor: pointer;
+}
+
+#projeto-container .foto{
+  width: 100%;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+#projeto-container .projeto:hover{
+  border-color: var(--destaque);
+  border-left-width: 15px ;
+}
+
+footer{
+  background-color: var(--destaque);
+  color: var(--texto-inverso);
+  text-align: center;
+  padding: 15px;
+}
+ 
+footer a{
+  color: var(--texto-inverso);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+footer a:hover{
+  color: var(--destaque-inverso);
+}
+
 @media screen and (min-width: 768px) {
+  main{
+    grid-template-columns: auto 350px 1fr auto;
+  }
+
+  #ficha img.foto{
+    margin-top: 25px;
+  }
+
+  section#ficha h1{
+    margin-top: 30px;
+  }
+
+  section#ficha{
+    grid-column: 2 / 3;
+    height: 800px;
+    position: sticky;
+    top: 65px;
+    
+  }
+
+  section#detalhes{
+    grid-column: 3 / 5;
+  }
+  
+  
   #skill-container{
     grid-template-columns: 1fr 1fr;
-    
   }
   .curso-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 20px; /* Adiciona um espaço entre as duas colunas */
+  }
+
+  #projeto-container .projeto{
+    flex-direction: row-reverse;
+    justify-content: space-between;
+  }
+
+  #projeto-container .projeto-info{
+    max-width: 80%;
+  }
+
+  #projeto-container .foto{
+    aspect-ratio: 1/1;
+    max-width: 30%;
+    max-height: 250px;
+    margin-right: 20px;
   }
   
 }
